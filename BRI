@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studi Kasus: Desain ID Card Profesional - Identitas Kreasindo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Corporate Blue & Orange -->
+    <!-- Application Structure Plan: Aplikasi ini dirancang sebagai landing page naratif tunggal yang mengalir dari atas ke bawah. Strukturnya adalah: 1) Hero Section untuk kesan pertama yang kuat dengan hasil akhir, 2) Latar Belakang Proyek (Klien & Tantangan), 3) Solusi Komprehensif, 4) Galeri Interaktif untuk menampilkan produk, 5) Spesifikasi Teknis, 6) Testimoni Klien untuk bukti sosial, dan 7) Kontak/CTA. Struktur ini dipilih karena mengikuti alur presentasi penjualan yang terbukti efektif: menunjukkan hasil, menjelaskan masalah, menyajikan solusi, memberikan bukti, dan mengajak bertindak. Ini lebih persuasif dan engaging bagi calon klien korporat dibandingkan meniru struktur laporan statis. -->
+    <!-- Visualization & Content Choices: Report Info: Desain ID Card (depan & belakang). Goal: Menampilkan produk secara detail dan interaktif. Viz/Presentation Method: Sebuah 'card flipper' interaktif menggunakan HTML/CSS dan sedikit JS, bukan gambar statis. Interaction: Pengguna menekan tombol untuk membalik kartu secara virtual. Justification: Interaksi ini lebih menarik daripada hanya melihat dua gambar, memberikan kesan 'premium' dan modern pada presentasi. Report Info: Tantangan & Solusi. Goal: Menyajikan informasi dengan ringkas. Viz/Method: Menggunakan layout kartu (cards) dengan ikon Unicode (misal: 💡, 🖨️) untuk memecah teks dan meningkatkan keterbacaan. Library/Method: Tailwind CSS untuk layout, Vanilla JS untuk interaktivitas. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .section-title {
+            color: #00529B;
+        }
+        .bri-blue {
+            color: #00529B;
+        }
+        .bri-orange {
+            color: #E67817;
+        }
+        .bg-bri-blue {
+            background-color: #00529B;
+        }
+        .card-container {
+            perspective: 1000px;
+        }
+        .card-flipper {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
+        .card-flipper.flipped {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .card-back {
+            transform: rotateY(180deg);
+        }
+        .id-card-aspect {
+            width: 300px;
+            height: 474px;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-white py-16 md:py-24">
+            <div class="container mx-auto px-6 text-center">
+                <p class="text-base font-semibold bri-orange uppercase tracking-wider">Studi Kasus: BRI Corporate University</p>
+                <h1 class="text-4xl md:text-5xl font-bold section-title mt-2">Desain & Produksi ID Card Profesional</h1>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">Mengubah identitas korporat menjadi sebuah karya yang fungsional, modern, dan membanggakan.</p>
+            </div>
+        </section>
+
+        <!-- Project Overview Section -->
+        <section id="overview" class="py-16 md:py-20">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold section-title mb-4">Klien & Tantangan</h3>
+                        <p class="mb-4 text-gray-600"><strong>BRI Corporate University</strong>, sebagai <i>Center of Excellence</i>, membutuhkan ID Card yang merefleksikan citra profesional dan modern bagi para talenta masa depan Bank BRI.</p>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start"><span class="bri-blue font-bold mr-2">✓</span>Desain yang bersih & berwibawa sesuai brand guideline.</li>
+                            <li class="flex items-start"><span class="bri-blue font-bold mr-2">✓</span>Kualitas produksi premium dengan ketajaman cetak maksimal.</li>
+                            <li class="flex items-start"><span class="bri-blue font-bold mr-2">✓</span>Memenuhi jadwal produksi yang ketat untuk orientasi program.</li>
+                        </ul>
+                    </div>
+                    <div class="text-center md:text-left">
+                         <h2 class="text-3xl font-bold section-title">Latar Belakang Proyek</h2>
+                         <p class="mt-4 text-lg text-gray-600">Setiap proyek dimulai dengan pemahaman mendalam terhadap kebutuhan klien untuk memberikan solusi yang tepat sasaran dan berkualitas tinggi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section id="solution" class="bg-white py-16 md:py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold section-title">Solusi Komprehensif Kami</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">Kami menerapkan pendekatan terintegrasi yang mencakup desain strategis, produksi berkualitas, dan manajemen proyek yang efisien.</p>
+                <div class="mt-12 grid md:grid-cols-3 gap-8">
+                    <div class="p-8 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-xl font-bold mb-2">💡 Desain Strategis</h3>
+                        <p class="text-gray-600">Tata letak vertikal dirancang dengan hierarki informasi yang jelas, menonjolkan identitas peserta untuk kemudahan identifikasi tanpa mengorbankan citra profesional.</p>
+                    </div>
+                    <div class="p-8 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-xl font-bold mb-2">🖨️ Produksi Berkualitas</h3>
+                        <p class="text-gray-600">Menggunakan material PVC standar ATM dan teknologi cetak UV untuk memastikan setiap detail tercetak sempurna, tajam, dan anti luntur.</p>
+                    </div>
+                    <div class="p-8 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="text-xl font-bold mb-2">⏱️ Manajemen Efisien</h3>
+                        <p class="text-gray-600">Alur kerja yang jelas dari approval hingga pengiriman memastikan proyek selesai tepat waktu, memungkinkan klien fokus pada acara utama.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Showcase Section -->
+        <section id="showcase" class="py-16 md:py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold section-title">Galeri Hasil Akhir</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">Desain final yang bersih, informatif, dan sejalan dengan citra BRI sebagai institusi terdepan.</p>
+                
+                <div class="mt-12 flex flex-col items-center">
+                    <div class="card-container id-card-aspect">
+                        <div id="cardFlipper" class="card-flipper id-card-aspect">
+                            <!-- Card Front -->
+                            <div class="card-face card-front absolute inset-0">
+                                <img src="https://storage.googleapis.com/maker-me/uploads/2024-09-18/uploaded_Katherine%20Novitanty%20Angelina_page-0001.jpg-703369d8-2fde-4d45-9efe-c082c9a51054" alt="ID Card Tampak Depan" class="w-full h-full object-cover rounded-2xl shadow-xl border border-gray-200">
+                            </div>
+                            <!-- Card Back -->
+                            <div class="card-face card-back absolute inset-0">
+                                <img src="https://storage.googleapis.com/maker-me/uploads/2024-09-18/uploaded_BELAKANG_page-0001.jpg-fab44965-b5fe-4b0e-9efa-aff019731f55" alt="ID Card Tampak Belakang" class="w-full h-full object-cover rounded-2xl shadow-xl">
+                            </div>
+                        </div>
+                    </div>
+                    <button id="flipButton" class="mt-8 bg-bri-blue text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-opacity-90 transition-transform transform hover:scale-105">
+                        Balik Kartu
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specifications & Testimonial Section -->
+        <section id="details" class="bg-white py-16 md:py-20">
+            <div class="container mx-auto px-6 max-w-4xl grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold section-title mb-4">Spesifikasi Produk</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold">Fitur Desain</h4>
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>Tata letak: Vertikal, Dual-Side Full Color</li>
+                                <li>Informasi Muka: Inisial, Logo, Nama Lengkap</li>
+                                <li>Informasi Belakang: Logo, Tagline, Info Kontak</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Spesifikasi Teknis</h4>
+                            <ul class="list-disc list-inside text-gray-600">
+                                <li>Material: Kartu PVC Premium (Standar ISO/ATM)</li>
+                                <li>Ukuran: 86 x 54 mm</li>
+                                <li>Teknologi Cetak: UV Printing (High-Resolution)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold section-title mb-4">Apa Kata Klien</h3>
+                    <div class="bg-blue-50 border-l-4 border-blue-500 text-blue-800 p-6 rounded-r-lg">
+                        <p class="italic">"Hasilnya sangat memuaskan, desainnya terlihat profesional dan kualitas cetaknya tajam. Proses kerja samanya juga cepat dan lancar. Sangat direkomendasikan!"</p>
+                        <p class="mt-4 font-bold text-right">— Novita Rizkiya, [Jabatan], Bank BRI</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 md:py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold section-title">Mari Diskusikan Kebutuhan Anda</h2>
+                <p class="mt-4 max-w-xl mx-auto text-lg text-gray-600">Hubungi saya untuk mendapatkan penawaran dan konsultasi gratis untuk proyek ID card perusahaan Anda.</p>
+                <div class="mt-8 inline-flex items-center space-x-6 text-lg">
+                    <a href="mailto:[Alamat Email Anda]" class="font-semibold hover:bri-blue">📧 [Alamat Email Anda]</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="tel:[Nomor Telepon Anda]" class="font-semibold hover:bri-blue">📞 [Nomor Telepon Anda]</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <p>&copy; 2025 Identitas Kreasindo. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <script>
+        const flipButton = document.getElementById('flipButton');
+        const cardFlipper = document.getElementById('cardFlipper');
+        flipButton.addEventListener('click', () => {
+            cardFlipper.classList.toggle('flipped');
+        });
+    </script>
+</body>
+</html>
+
+
+
